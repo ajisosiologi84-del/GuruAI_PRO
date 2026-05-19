@@ -1,0 +1,41 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and role information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Firebase Auth UID" },
+        "email": { "type": "string", "description": "User email address" },
+        "role": { "type": "string", "enum": ["admin", "user"], "description": "User's role in the system" },
+        "displayName": { "type": "string", "description": "Display name of the user" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the user record was created" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "AppProgress": {
+      "title": "App Progress",
+      "description": "User's working progress on their curriculum",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "identity": { "type": "object" },
+        "cumulativeResults": { "type": "object" },
+        "currentStep": { "type": "number" },
+        "currentContent": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and roles"
+    },
+    "/progress/{userId}": {
+      "schema": "AppProgress",
+      "description": "User's individual progress and saved data"
+    }
+  }
+}

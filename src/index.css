@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-primary: #10b981;
+  --color-brand-secondary: #3b82f6;
+  --color-brand-accent: #f59e0b;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-gray-50 text-gray-900;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display font-bold tracking-tight;
+  }
+}
+
+.markdown-body :where(table) {
+  @apply w-full border-collapse my-6 text-sm;
+}
+.markdown-body :where(th) {
+  @apply bg-slate-50 text-slate-800 p-2 border border-slate-300 text-left font-bold;
+}
+.markdown-body :where(td) {
+  @apply p-2 border border-slate-200 text-slate-700 align-top;
+}
+
+/* Template UI Classes */
+.template-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  @apply border border-slate-400;
+}
+.template-label {
+  @apply bg-slate-100 p-3 font-bold border-r border-b border-slate-400 text-sm;
+}
+.template-value {
+  @apply p-3 border-b border-slate-400 text-sm;
+}
+.template-section-title {
+  @apply bg-slate-200 p-2 font-bold border-b border-slate-400 text-center uppercase tracking-wider text-xs;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+  .markdown-body {
+    font-size: 11pt !important;
+  }
+  .markdown-body table {
+    page-break-inside: auto;
+  }
+  .markdown-body tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+}
+

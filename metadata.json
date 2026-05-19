@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Guru AI: Generator kurikulum \u0026 Modul Ajar V-3",
+  "description": "Asisten AI cerdas untuk guru dalam menyusun CP, TP, ATP, dan Modul Ajar Pembelajaran Mendalam (Deep Learning) sesuai kurikulum 2025.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
